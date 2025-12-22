@@ -1,10 +1,270 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
+
 <head>
     <meta charset="UTF-8">
-    <title>임시점검</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>시스템 점검 안내 | 홀리 재정</title>
+    <style>
+        /* Reset and Base Styles */
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.5;
+            color: #4b5563;
+            /* gray-600 */
+            background: linear-gradient(to bottom right, #f0fdf4, #ecfdf5, #ffffff);
+            /* green-50 via emerald-50 to white */
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 32rem;
+            /* max-w-lg */
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Card */
+        .card {
+            background-color: white;
+            border-radius: 1.5rem;
+            /* rounded-2xl */
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(229, 231, 235, 0.5);
+        }
+
+        /* Decorative Elements */
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(40px);
+            z-index: 0;
+            opacity: 0.3;
+        }
+
+        .blob-1 {
+            top: -2rem;
+            left: -2rem;
+            width: 10rem;
+            height: 10rem;
+            background-color: #86efac;
+            /* green-300 */
+        }
+
+        .blob-2 {
+            bottom: -2rem;
+            right: -2rem;
+            width: 12rem;
+            height: 12rem;
+            background-color: #6ee7b7;
+            /* emerald-300 */
+        }
+
+        /* Content */
+        .content {
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Icon */
+        .icon-wrapper {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 5rem;
+            height: 5rem;
+            border-radius: 9999px;
+            background-color: #f0fdf4;
+            /* green-50 */
+            color: #16a34a;
+            /* green-600 */
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 1.875rem;
+            /* 3xl */
+            font-weight: 800;
+            color: #111827;
+            /* gray-900 */
+            margin-bottom: 1rem;
+            letter-spacing: -0.025em;
+        }
+
+        p {
+            font-size: 1.125rem;
+            /* lg */
+            margin-bottom: 1rem;
+            word-break: keep-all;
+        }
+
+        .highlight {
+            color: #16a34a;
+            /* green-600 */
+            font-weight: 600;
+        }
+
+        /* Info Box */
+        .info-box {
+            background-color: #f9fafb;
+            /* gray-50 */
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            text-align: left;
+            border: 1px solid #f3f4f6;
+        }
+
+        .info-row {
+            display: flex;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-row:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: #374151;
+            /* gray-700 */
+            width: 5rem;
+            flex-shrink: 0;
+        }
+
+        .info-value {
+            color: #4b5563;
+            /* gray-600 */
+        }
+
+        /* Button */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #16a34a;
+            /* green-600 */
+            color: white;
+            padding: 0.875rem 2rem;
+            border-radius: 0.75rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            background-color: #15803d;
+            /* green-700 */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transform: translateY(-1px);
+        }
+
+        .btn-kakao {
+            background-color: #FEE500;
+            color: #3C1E1E;
+        }
+
+        .btn-kakao:hover {
+            background-color: #fcd34d;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.875rem;
+            color: #9ca3af;
+        }
+
+        /* Responsive */
+        @media (max-width: 640px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .card {
+                padding: 2rem 1.5rem;
+            }
+        }
+
+        .custom-keep-words {
+            word-break: keep-all;
+            overflow-wrap: break-word
+        }
+    </style>
 </head>
+
 <body>
-임시점검
+<div class="container">
+    <div class="card">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+
+        <div class="content">
+            <div class="icon-wrapper">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none"
+                     stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path
+                            d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z">
+                    </path>
+                </svg>
+            </div>
+
+            <h1>홀리재정 <span class="highlight">시스템 점검</span> 안내</h1>
+
+            <p class="custom-keep-words">
+                더 나은 서비스 제공을 위해<br>
+                현재 시스템 업그레이드 및 점검을 진행하고 있습니다.
+            </p>
+            <p class="custom-keep-words">
+                점검 시간 동안은 서비스 이용이 일시적으로 제한되오니<br>
+                고객님의 양해 부탁드립니다.
+            </p>
+
+            <div class="info-box">
+                <div class="info-row">
+                    <span class="info-label">점검 일시</span>
+                    <span class="info-value custom-keep-words">2025년 12월 22일 22:00 ~ 02:00</span>
+                </div>
+                <div class="info-row">
+                    <span class="info-label">작업 내용</span>
+                    <span class="info-value custom-keep-words">서버 안정화 및 시스템 업데이트</span>
+                </div>
+            </div>
+
+            <a href="https://pf.kakao.com/_UxgxjUn/chat" target="_blank" class="btn btn-kakao">
+                <svg style="margin-right: 8px;" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path
+                            d="M12 3c5.799 0 10.5 3.664 10.5 8.185 0 4.52-4.701 8.184-10.5 8.184a13.5 13.5 0 0 1-1.727-.11l-4.408 2.883c-.501.265-.678.236-.472-.413l.892-3.678c-2.88-1.46-4.785-3.99-4.785-6.866C1.5 6.665 6.201 3 12 3z" />
+                </svg>
+                문의하기
+            </a>
+
+            <div class="footer">
+                &copy; HolyFlows. All rights reserved.
+            </div>
+        </div>
+    </div>
+</div>
 </body>
+
 </html>
